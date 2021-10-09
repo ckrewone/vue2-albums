@@ -4,6 +4,9 @@ import Vuesax from 'vuesax'
 import VueRouter from 'vue-router'
 import store from './store';
 import router from './routes';
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate);
 
 import 'boxicons/css/boxicons.min.css'
 import 'vuesax/dist/vuesax.css'

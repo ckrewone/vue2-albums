@@ -16,7 +16,7 @@
               <vs-button danger icon @click="addOrRemoveToFavorite(album)">
                 <i :class='isFavorite(album) ? "bx bxs-heart" : "bx bx-heart"'></i>
               </vs-button>
-              <vs-button icon>
+              <vs-button icon @click="$router.push('/edit/' + album.id)">
                 <i class='bx bx-edit'></i>
               </vs-button>
             </template>
