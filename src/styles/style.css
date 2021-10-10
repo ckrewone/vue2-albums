@@ -1,0 +1,20 @@
+.title:hover {
+    text-decoration: underline;
+  }
+  .big-icon {
+    font-size: 10em;
+  }
+  .vs-card__text {
+    width: 100%;
+  }
+  .img {
+    padding-bottom: 60px;
+  }
+  .card {
+    padding: 5px;
+  }
+  .row {
+    left: 50%;
+    max-width: 1200px;
+    transform: translateX(-50%);
+  }

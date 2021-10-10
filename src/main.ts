@@ -16,6 +16,7 @@ Vue.component('ValidationProvider', ValidationProvider);
 
 import 'boxicons/css/boxicons.min.css'
 import 'vuesax/dist/vuesax.css'
+import './styles/style.css'
 
 Vue.use(Vuesax)
 Vue.use(VueRouter)
