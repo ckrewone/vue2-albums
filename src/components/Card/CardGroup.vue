@@ -2,9 +2,9 @@
       <vs-row justify="center">
         <template v-for="(album, index) in albums">
         <vs-col vs-type="flex" :key="index" vs-justify="center" vs-align="center" w="4">
-         <vs-card type="1">
+         <vs-card type="1" @click="$router.push('/details/' + album.id)">
             <template #title>
-              <h3>{{ album.title }}</h3>
+              <h3 class="title">{{ album.title }}</h3>
             </template>
             <template #text>
               <a>(id:{{album.id}})</a>
@@ -24,9 +24,27 @@
         </vs-col>
         </template>
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4">
-            <vs-button shadow @click="loadMoreAlbums" v-if="!isAllAlbumsLoaded">
-                More... {{visibleAlbumsCount}} {{ getAlbums.length }}
-            </vs-button>
+                     <vs-card type="1" @click="loadMoreAlbums" v-if="!isAllAlbumsLoaded">
+            <template #title>
+              <h3></h3>
+            </template>
+            <template #text>
+              <h3>Załaduj więcej albumów</h3>
+            </template>
+            <template #img>
+              <img src="../../assets/logo.png" alt="">
+            </template>
+          </vs-card>
+        </vs-col>
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="4">
+          <vs-card type="1" @click="$router.push('/add')" v-if="!isAllAlbumsLoaded">
+            <template #text>
+              <h3>Dodaj nowy album</h3>
+            </template>
+            <template #img>
+              <img src="../../assets/logo.png" alt="">
+            </template>
+          </vs-card>
         </vs-col>
       </vs-row>
 </template>
@@ -80,3 +98,9 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped>
+.title:hover {
+  text-decoration: underline;
+}
+</style>

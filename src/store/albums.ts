@@ -17,7 +17,7 @@ const albums = {
             state.albums[state.albums.findIndex((album: any) => album.id == payload.id)] = payload
         },
         ADD_ALBUM (state: any, album: any) {
-            state.albums.push(album)
+            state.albums.unshift(album)
         },
     },
     actions: {
