@@ -1,4 +1,12 @@
 # vue2-albums
+Prosta aplikacja wyświetlająca albumy ze zdjęciami z mockowego api.
+Stack:
+vue2
+vuex
+typescript
+vuesax
+vee-validate
+boxicons
 
 ## Project setup
 ```

@@ -1,8 +1,8 @@
 import Vuex from "vuex"
 import Vue from "vue"
 
-import albums from "./albums"
-import favorite from './favorite'
+import albums from "./albums/index"
+import favorite from './favorite/index'
 
 Vue.use(Vuex)
 

@@ -3,7 +3,7 @@
     <template v-for="(album, index) in albums">
       <album-card :key="index" :album="album" />
     </template>
-    <add-album-card/>
+    <add-album-card />
     <more-card @click="loadMoreAlbums" :show="!isAllAlbumsLoaded" />
   </vs-row>
 </template>
@@ -11,30 +11,31 @@
 <script lang='ts'>
 import { mapGetters } from "vuex";
 import Vue from "vue";
-import MoreCard from "./MoreCard.vue";
-import AlbumCard from "./AlbumCard.vue";
-import AddAlbumCard from "./AddAlbumCard.vue";
+import MoreCard from "../Card/MoreCard.vue";
+import AlbumCard from "../Card/AlbumCard.vue";
+import AddAlbumCard from "../Card/AddAlbumCard.vue";
+import { Album } from "@/store/albums/Album";
 
 export default Vue.extend({
   components: { MoreCard, AlbumCard, AddAlbumCard },
   name: "AlbumsCardGroup",
   data() {
     return {
-      visibleAlbumsCount: 10,
+      visibleCount: 10,
     };
   },
   computed: {
     ...mapGetters("albums", ["getAlbums"]),
-    albums(): any {
-      return (this.getAlbums as any[]).slice(0, this.visibleAlbumsCount);
+    albums(): Album[] {
+      return this.getAlbums.slice(0, this.visibleCount);
     },
     isAllAlbumsLoaded(): boolean {
-      return this.visibleAlbumsCount >= this.getAlbums.length;
+      return this.visibleCount >= this.getAlbums.length;
     },
   },
   methods: {
     loadMoreAlbums() {
-      this.visibleAlbumsCount += 10;
+      this.visibleCount += 10;
     },
   },
 });

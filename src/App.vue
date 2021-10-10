@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <AlbumList/>
+    <album-list/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { mapActions } from 'vuex';
+import Notifications from './mixins/Notifications.vue';
 import AlbumList from './views/AlbumList.vue'
 
 export default Vue.extend({
   name: 'App',
   components: { AlbumList },
+  mixins: [Notifications],
   methods: {
       ...mapActions('albums', ['fetchAlbums', 'fetchPhotos']),
   },

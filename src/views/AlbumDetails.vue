@@ -4,9 +4,7 @@
       <div>
         <h2 class="not-margin">Szczegóły albumu:</h2>
         <h3 class="not-margin">
-          <i class="bx bx-image-alt bx-tada"></i>
           {{ title }}
-          <i class="bx bx-image-alt bx-tada"></i>
         </h3>
       </div>
       <vs-button danger icon @click="addOrDeleteFavorite(id)">
@@ -19,49 +17,27 @@
         ></i>
       </vs-button>
     </template>
-    <vs-row justify="center">
-      <template v-if="photos.length">
-        <template v-for="(photo, index) in photos">
-          <vs-col
-            vs-type="flex"
-            :key="index"
-            vs-justify="center"
-            vs-align="center"
-            w="4"
-          >
-            <vs-card type="5">
-              <template #title>
-                <h3>{{ photo.title }}</h3>
-              </template>
-              <template #text>
-                <a>(id:{{ photo.id }})</a>
-              </template>
-              <template #img>
-                <img :src="photo.thumbnailUrl" alt="" />
-              </template>
-            </vs-card>
-          </vs-col>
-        </template>
-      </template>
-      <template v-else>
-        <div ref="load" class="loader"></div>
-      </template>
-    </vs-row>
+    <photos-card-group :id="id" />
   </vs-dialog>
 </template>
 
 <script lang='ts'>
 import { mapGetters, mapActions } from "vuex";
+import PhotosCardGroup from "../components/CardGroup/PhotosCardGroup.vue";
 import Vue from "vue";
 
 export default Vue.extend({
   name: "AlbumDetails",
-  data() {
-    return {
-      active: false,
-    };
+  components: { PhotosCardGroup },
+  data: () => ({
+    active: false,
+  }),
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
   },
-  props: ["id"],
   mounted() {
     this.active = true;
   },
@@ -87,9 +63,3 @@ export default Vue.extend({
   },
 });
 </script>
-<style scoped>
-.loader {
-  height: 100px;
-  width: 100px;
-}
-</style>

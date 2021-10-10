@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import AlbumCardGroup from "../components/Card/AlbumsCardGroup.vue";
+import AlbumCardGroup from "../components/CardGroup/AlbumsCardGroup.vue";
 
 export default {
   components: { AlbumCardGroup },

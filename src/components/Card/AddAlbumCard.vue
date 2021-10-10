@@ -14,7 +14,7 @@
       </template>
       <template #img>
         <div class="img">
-          <i class="bx bx-book-add bx-burst-hover big-icon"></i>
+          <i class="bx bx-book-add big-icon"></i>
         </div>
       </template>
     </vs-card>
