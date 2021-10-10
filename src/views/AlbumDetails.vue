@@ -1,15 +1,25 @@
 <template>
-      <vs-dialog blur v-model="active" @close="close">
+      <vs-dialog blur v-model="active" scroll @close="close">
         <template #header>
-          <h4 class="not-margin">
-            Szczegóły albumu
-          </h4>
+          <div>
+          <h2 class="not-margin">
+            Szczegóły albumu:
+          </h2>
+          <h3 class="not-margin">
+            <i class='bx bx-image-alt bx-tada'></i>
+              {{title}}
+            <i class='bx bx-image-alt bx-tada'></i>
+          </h3>
+          </div>
+          <vs-button danger icon @click="addOrDeleteFavorite(id)">
+            <i :class='isFavorite(id) ? "bx bxs-heart bx-tada-hover" : "bx bx-heart bx-tada-hover"'></i>
+          </vs-button>
         </template>
       <vs-row justify="center">
         <template v-if="photos.length">
         <template v-for="(photo, index) in photos">
         <vs-col vs-type="flex" :key="index" vs-justify="center" vs-align="center" w="4">
-         <vs-card type="1">
+         <vs-card type="5">
             <template #title>
               <h3>{{ photo.title }}</h3>
             </template>
@@ -38,34 +48,31 @@ export default Vue.extend({
   name: 'AlbumDetails',
   data() {
     return {
-      active: true,
-      loading: (this as any).$vs.loading({
-            type: 'scale',
-            target: this.$refs.load,
-            text: 'Ladujemy zdjecia',
-            opacity: 0
-          })      
+      active: false,     
     }
   },
   props: ['id'],
-  async mounted() {
-    await (this as any).fetchPhotosByAlbumId(this.id);
-    // console.log(this.$refs.load)
-    // setTimeout(() => {
-      (this as any).loading.close();
-    // }, 2000)
+  mounted() {
+    this.active = true
   },
   computed: {
-      ...mapGetters('photos', ['getPhotosByAlbumId']),
+      ...mapGetters('albums', ['getPhotosByAlbumId', 'getAlbumById']),
+      ...mapGetters('favorite', ['isFavorite']),
       photos() {
         return this.getPhotosByAlbumId(this.id)
-        // return [];
+      },
+      title() {
+        return this.getAlbumById(this.id).title
       }
   },
   methods: {
-      ...mapActions('photos', ['fetchPhotosByAlbumId']),
+      ...mapActions('albums', ['fetchPhotosByAlbumId']),
+      ...mapActions('favorite', ['addOrDeleteFavorite']),
       close() {
-        this.$router.push('/')
+         this.active = false
+         setTimeout(() => {
+           this.$router.push('/')
+         }, 100)
       }
   }
 });

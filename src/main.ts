@@ -4,9 +4,15 @@ import Vuesax from 'vuesax'
 import VueRouter from 'vue-router'
 import store from './store';
 import router from './routes';
-import VeeValidate from 'vee-validate';
+import { ValidationProvider, extend } from 'vee-validate';
+import { alpha_spaces } from 'vee-validate/dist/rules';
 
-Vue.use(VeeValidate);
+extend('alpha_spaces', {
+  ...alpha_spaces,
+  message: 'Tylko litery i spacje'
+});
+
+Vue.component('ValidationProvider', ValidationProvider);
 
 import 'boxicons/css/boxicons.min.css'
 import 'vuesax/dist/vuesax.css'

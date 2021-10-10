@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <router-view/>
+    <AlbumList/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { mapActions } from 'vuex';
+import AlbumList from './views/AlbumList.vue'
 
 export default Vue.extend({
   name: 'App',
-    methods: {
-      ...mapActions('albums', ['fetchAlbums'])
+  components: { AlbumList },
+  methods: {
+      ...mapActions('albums', ['fetchAlbums', 'fetchPhotos']),
   },
-  mounted() {
-      this.fetchAlbums();
+  async mounted() {
+      await this.fetchAlbums();
+      await this.fetchPhotos();
   }
 });
 </script>
