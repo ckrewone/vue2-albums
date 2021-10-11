@@ -2,7 +2,7 @@
   <base-card :type="type" :title="photo.title" :id="photo.id.toString()">
     <template #img>
       <div class="img">
-        <img :src="photo.thumbnailUrl" alt="" />
+        <img :src="photo.url" alt="" />
       </div>
     </template>
   </base-card>

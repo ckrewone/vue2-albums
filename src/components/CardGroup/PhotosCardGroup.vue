@@ -1,26 +1,11 @@
 <template>
   <vs-row justify="space-around" class="row">
     <template v-for="(photo, index) in photos">
-      <vs-col
-        :key="'photos_' + index"
-        vs-type="flex"
-        vs-justify="center"
-        vs-align="center"
-        lg="4"
-        sm="6"
-        xs="12"
-      >
+      <vs-col :key="'photos_' + index" vs-type="flex" lg="6" sm="6" xs="12">
         <photo-card :photo="photo" :type="type" />
       </vs-col>
     </template>
-    <vs-col
-      vs-type="flex"
-      vs-justify="center"
-      vs-align="center"
-      lg="4"
-      sm="6"
-      xs="12"
-    >
+    <vs-col vs-type="flex" lg="6" sm="6" xs="12">
       <more-card @click="loadMore" :show="!isAllLoaded" :type="type" />
     </vs-col>
   </vs-row>

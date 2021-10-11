@@ -4,7 +4,6 @@
       <vs-col
         :key="'album_' + index"
         vs-type="flex"
-        vs-align="center"
         lg="3"
         sm="4"
         xs="6"
@@ -13,24 +12,10 @@
         <album-card :key="index" :album="album" />
       </vs-col>
     </template>
-    <vs-col
-      vs-type="flex"
-      vs-align="center"
-      lg="3"
-      sm="4"
-      xs="6"
-      class="card"
-    >
+    <vs-col vs-type="flex" lg="3" sm="4" xs="6" class="card">
       <add-album-card />
     </vs-col>
-    <vs-col
-      vs-type="flex"
-      vs-align="center"
-      lg="3"
-      sm="4"
-      xs="6"
-      class="card"
-    >
+    <vs-col vs-type="flex" lg="3" sm="4" xs="6" class="card">
       <more-card @click="loadMoreAlbums" :show="!isAllAlbumsLoaded" />
     </vs-col>
   </vs-row>
