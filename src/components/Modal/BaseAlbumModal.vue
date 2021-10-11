@@ -1,9 +1,7 @@
 <template>
   <vs-dialog blur v-model="active" @close="close">
     <template #header>
-      <h2 class="not-margin">
-        <slot name="header" />
-      </h2>
+      <slot name="header" />
     </template>
     <ValidationProvider name="email" rules="alpha_spaces" v-slot="{ errors }">
       <vs-input v-model="title" label="Tytuł">
@@ -52,7 +50,7 @@ export default Vue.extend({
   },
   watch: {
     async title(value: string) {
-      const data : { valid: boolean } = await validate(value, "alpha_spaces");
+      const data: { valid: boolean } = await validate(value, "alpha_spaces");
       this.valid = data.valid;
     },
   },

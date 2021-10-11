@@ -1,9 +1,28 @@
 <template>
   <vs-row justify="space-around" class="row">
     <template v-for="(photo, index) in photos">
-      <photo-card :key="index" :photo="photo" :type="type"/>
+      <vs-col
+        :key="'photos_' + index"
+        vs-type="flex"
+        vs-justify="center"
+        vs-align="center"
+        lg="4"
+        sm="6"
+        xs="12"
+      >
+        <photo-card :photo="photo" :type="type" />
+      </vs-col>
     </template>
-    <more-card @click="loadMore" :show="!isAllLoaded" :type="type" />
+    <vs-col
+      vs-type="flex"
+      vs-justify="center"
+      vs-align="center"
+      lg="4"
+      sm="6"
+      xs="12"
+    >
+      <more-card @click="loadMore" :show="!isAllLoaded" :type="type" />
+    </vs-col>
   </vs-row>
 </template>
 
@@ -20,7 +39,7 @@ export default Vue.extend({
   data() {
     return {
       visibleCount: 10,
-      type: '2'
+      type: "5",
     };
   },
   props: {

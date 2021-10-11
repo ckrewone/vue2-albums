@@ -1,10 +1,38 @@
 <template>
   <vs-row justify="space-around" class="row">
     <template v-for="(album, index) in albums">
-      <album-card :key="index" :album="album" />
+      <vs-col
+        :key="'album_' + index"
+        vs-type="flex"
+        vs-align="center"
+        lg="3"
+        sm="4"
+        xs="6"
+        class="card"
+      >
+        <album-card :key="index" :album="album" />
+      </vs-col>
     </template>
-    <add-album-card />
-    <more-card @click="loadMoreAlbums" :show="!isAllAlbumsLoaded" />
+    <vs-col
+      vs-type="flex"
+      vs-align="center"
+      lg="3"
+      sm="4"
+      xs="6"
+      class="card"
+    >
+      <add-album-card />
+    </vs-col>
+    <vs-col
+      vs-type="flex"
+      vs-align="center"
+      lg="3"
+      sm="4"
+      xs="6"
+      class="card"
+    >
+      <more-card @click="loadMoreAlbums" :show="!isAllAlbumsLoaded" />
+    </vs-col>
   </vs-row>
 </template>
 

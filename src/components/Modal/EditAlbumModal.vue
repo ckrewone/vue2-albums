@@ -1,7 +1,7 @@
 <template>
   <base-album-modal @save="save" :defaultTitle="title">
     <template #header>
-      <h3 class="not-margin">Edytuj album</h3>
+      <h3>Edytuj album</h3>
     </template>
   </base-album-modal>
 </template>

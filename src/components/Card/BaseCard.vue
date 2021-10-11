@@ -1,5 +1,4 @@
 <template>
-  <vs-col vs-type="flex" lg="3" sm="4" xs="6" vs-align="center" class="card">
     <vs-card :type="type">
       <template #title>
         <h3 class="title" @click="$emit('click')">
@@ -16,7 +15,6 @@
         <slot name="interactions" />
       </template>
     </vs-card>
-  </vs-col>
 </template>
 
 <script lang='ts'>

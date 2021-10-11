@@ -1,14 +1,4 @@
 <template>
-  <vs-col
-    v-if="show"
-    vs-type="flex"
-    vs-justify="center"
-    vs-align="center"
-    lg="3"
-    sm="4"
-    xs="6"
-    class="card"
-  >
     <vs-card :type="type" @click="$emit('click')">
       <template #title />
       <template #text>
@@ -20,7 +10,6 @@
         </div>
       </template>
     </vs-card>
-  </vs-col>
 </template>
 
 <script lang='ts'>
