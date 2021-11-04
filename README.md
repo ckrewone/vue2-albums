@@ -8,6 +8,9 @@ vuesax
 vee-validate
 boxicons
 
+zalecany Node 14
+miłego zwiedzania ;)
+
 ## Project setup
 ```
 npm install
