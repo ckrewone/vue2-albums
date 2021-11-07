@@ -1,5 +1,10 @@
 <template>
-  <base-card :type="type" :title="photo.title" :id="photo.id.toString()">
+  <base-card 
+  :type="type" 
+  :title="photo.title" 
+  :id="photo.id.toString()"
+  class="photo-card"
+  >
     <template #img>
       <div class="img">
         <img :src="photo.url" alt="" />

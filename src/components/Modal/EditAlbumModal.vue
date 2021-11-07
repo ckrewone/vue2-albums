@@ -1,5 +1,5 @@
 <template>
-  <base-album-modal @save="save" :defaultTitle="title">
+  <base-album-modal @save="save" :defaultTitle="title" class="modal-edit">
     <template #header>
       <h3>Edytuj album</h3>
     </template>

@@ -1,5 +1,5 @@
 <template>
-    <vs-card :type="type" @click="$emit('click')">
+    <vs-card :type="type" @click="$emit('click')" class="more-card">
       <template #title />
       <template #text>
         <h3>Załaduj więcej</h3>

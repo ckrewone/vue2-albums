@@ -1,5 +1,5 @@
 <template>
-  <vs-card type="4" @click="$router.push('/add')">
+  <vs-card type="4" @click="$router.push('/add')" class="add-card">
     <template #text>
       <h3>Dodaj nowy album</h3>
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <vs-dialog blur v-model="active" scroll @close="close">
+  <vs-dialog blur v-model="active" scroll @close="close" class="album-details-modal">
     <template #header>
       <div>
         <h2 class="not-margin">Szczegóły albumu:</h2>

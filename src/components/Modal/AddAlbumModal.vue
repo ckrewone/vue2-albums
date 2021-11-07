@@ -1,5 +1,5 @@
 <template>
-  <base-album-modal @save="save">
+  <base-album-modal @save="save" class="modal-add">
     <template #header>
       <h3>Dodaj nowy album</h3>
     </template>

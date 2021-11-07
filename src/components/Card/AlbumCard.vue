@@ -2,6 +2,7 @@
   <base-card
     :title="album.title"
     :id="album.id.toString()"
+    class="album-card"
     @click="$router.push('/details/' + album.id)"
   >
     <template #img>
